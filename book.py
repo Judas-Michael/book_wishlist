@@ -20,6 +20,7 @@ class Book:
         read_str = 'no'
         if self.read:
             read_str = 'yes'
+			date_read = input('What date was this book read?') #assigns date the book was read
 
         id_str = self.id
         if id == -1:
