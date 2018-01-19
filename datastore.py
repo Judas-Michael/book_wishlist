@@ -60,8 +60,8 @@ def get_books(**kwargs):
 
     if len(kwargs) == 0:
         return book_list
-
-    if 'read' in kwargs:
+		search_function = input("Enter a search function") #enters custom search function
+    if search_function in kwargs: #instead of read can return any search keyword
         read_books = [ book for book in book_list if book.read == kwargs['read'] ]
         return read_books
 
