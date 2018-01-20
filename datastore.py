@@ -66,6 +66,19 @@ def get_books(**kwargs):
         return read_books
 
 
+def sort_booklist(param):
+
+    global book_list
+
+    if param == 1:
+        book_list = sorted(book_list, key=lambda book: book.title)
+    elif param == 2:
+        book_list = sorted(book_list, key=lambda book: book.author)
+    elif param == 3:
+        book_list = sorted(book_list, key=lambda book: book.id)
+
+
+
 
 def add_book(book):
     ''' Add to db, set id value, return Book'''
@@ -74,8 +87,8 @@ def add_book(book):
 
     book.id = generate_id()
     book_list.append(book)
-	if read_str = 'yes':
-		print("This book has been read!") #posts this message if the added book has been read
+    if book.read == 'yes':
+        print("This book has been read!") #posts this message if the added book has been read
 
 
 def generate_id():

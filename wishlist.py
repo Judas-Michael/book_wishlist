@@ -21,6 +21,9 @@ def handle_choice(choice):
     elif choice == '5':
         del_book()
 
+    elif choice == '6':
+        sort_books()
+
     elif choice == 'q':
         quit()
 
@@ -63,6 +66,23 @@ def del_book():
         ui.message('Book deleted')
     else:
         ui.message('Book id not found in database')
+
+
+def sort_books():
+    '''Get input from user, sort list by selection (author or title)'''
+    print('''Sort by what?
+        1. Title
+        2. Author
+        3. Book ID
+    ''')
+
+    sort_by = int(input('Enter your selection: '))
+    if sort_by in range(1,4):
+        datastore.sort_booklist(sort_by)
+        ui.message('Book list sorted.')
+    else:
+        ui.message('Please enter a valid selection.')
+        sort_books()
 
 
 def quit():

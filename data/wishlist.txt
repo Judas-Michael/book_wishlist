@@ -1,1 +1,10 @@
-a^^^a^^^False^^^1
+a^^^a^^^True^^^1
+b^^^c^^^False^^^4
+d^^^e^^^False^^^5
+f^^^g^^^False^^^6
+h^^^i^^^False^^^7
+b^^^a^^^True^^^8
+t^^^q^^^False^^^9
+z^^^w^^^False^^^11
+q^^^d^^^False^^^12
+c^^^c^^^False^^^13
