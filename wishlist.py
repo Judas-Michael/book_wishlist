@@ -18,6 +18,9 @@ def handle_choice(choice):
     elif choice == '4':
         new_book()
 
+    elif choice == '5':
+        del_book()
+
     elif choice == 'q':
         quit()
 
@@ -51,6 +54,15 @@ def new_book():
     new_book = ui.get_new_book_info()
     datastore.add_book(new_book)
     ui.message('Book added: ' + str(new_book))
+
+
+def del_book():
+    '''Get info from user, delete selected book if exists, display result'''
+    book_id = ui.ask_for_book_id()
+    if datastore.delete_book(book_id):
+        ui.message('Book deleted')
+    else:
+        ui.message('Book id not found in database')
 
 
 def quit():
