@@ -74,6 +74,8 @@ def add_book(book):
 
     book.id = generate_id()
     book_list.append(book)
+	if read_str = 'yes':
+		print("This book has been read!") #posts this message if the added book has been read
 
 
 def generate_id():
