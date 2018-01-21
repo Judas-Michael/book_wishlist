@@ -135,12 +135,15 @@ def make_book_list(json_data):
         title = obj['title']
         author = obj['author']
         read = False
-        rating = ''
+        id = obj['id']
         if obj['read'] == 'True':
             read = True
-            rating = obj['rating]']
-        id = obj['id']
-        book = Book(title, author, rating, read, int(id))
+            rating = obj['rating']
+            date_read = obj['date_read']
+            book = Book(title, author, read, rating, date_read, int(id))
+        else:
+            book = Book(title, author, read, int(id))
+
         book_list.append(book)
 
 def make_output_data():
@@ -150,8 +153,9 @@ def make_output_data():
 
     json_data = [{"title": book.title,
                   "author": book.author,
-                  "rating": book.rating,
                   "read": str(book.read),
+                  "rating": book.rating,
+                  "date_read": book.date_read,
                   "id": str(book.id)} for book in book_list]
 
     return json_data
