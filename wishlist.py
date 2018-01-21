@@ -46,7 +46,18 @@ def show_read():
 def book_read():
     ''' Get choice from user, edit datastore, display success/error'''
     book_id = ui.ask_for_book_id()
-    if datastore.set_read(book_id, True):
+    rating = ''
+    while rating not in range(1,5):
+        try:
+            rating = int(input("How many stars do you give this book? (1-5): "))
+            if rating not in range(1,5):
+                print('Number not within valid range.')
+        except ValueError:
+            print('Please enter a valid integer')
+
+    rating = ('*' * rating)
+
+    if datastore.set_read(book_id, rating):
         ui.message('Successfully updated')
     else:
         ui.message('Book id not found in database')

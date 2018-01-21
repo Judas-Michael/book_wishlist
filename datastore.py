@@ -96,7 +96,7 @@ def generate_id():
     return counter
 
 
-def set_read(book_id, read):
+def set_read(book_id, book_rating):
     '''Update book with given book_id to read. Return True if book is found in DB and update is made, False otherwise.'''
 
     global book_list
@@ -105,6 +105,7 @@ def set_read(book_id, read):
 
         if book.id == book_id:
             book.read = True
+            book.rating = book_rating
             return True
 
     return False # return False if book id is not found
@@ -134,10 +135,12 @@ def make_book_list(json_data):
         title = obj['title']
         author = obj['author']
         read = False
+        rating = ''
         if obj['read'] == 'True':
             read = True
+            rating = obj['rating]']
         id = obj['id']
-        book = Book(title, author, read, int(id))
+        book = Book(title, author, rating, read, int(id))
         book_list.append(book)
 
 def make_output_data():
@@ -147,6 +150,7 @@ def make_output_data():
 
     json_data = [{"title": book.title,
                   "author": book.author,
+                  "rating": book.rating,
                   "read": str(book.read),
                   "id": str(book.id)} for book in book_list]
 
