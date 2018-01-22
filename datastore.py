@@ -159,3 +159,32 @@ def make_output_data():
                   "id": str(book.id)} for book in book_list]
 
     return json_data
+
+	
+	def edit_author(book_id): #edits author of book if ID exists
+
+		global book_list
+
+		for book in book_list:
+
+			if book.id == book_id:
+				book_author = input("Edit Author: ")
+				book_list.append(book.author(book_author))
+				return True
+
+		else:
+			return False
+			
+			def edit_title(book_id): #edits title of book if ID exists
+
+		global book_list
+
+		for book in book_list:
+
+			if book.id == book_id:
+				book_title = input("Edit Title: ")
+				book_list.append(book.title(book_title))
+				return True
+
+		else:
+			return False
