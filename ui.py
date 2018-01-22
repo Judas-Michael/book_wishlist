@@ -10,6 +10,8 @@ def display_menu_get_choice():
         2. Show books that have been read
         3. Mark a book as read
         4. Add book to wishlist
+        5. Delete a book from wishlist
+        6. Sort book list
         q. Quit
     ''')
 
